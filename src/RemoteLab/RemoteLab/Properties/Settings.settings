@@ -3,26 +3,11 @@
   <Profiles />
   <Settings>
     <Setting Name="Database" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)" />
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="AdministratorADGroup" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">IST-Users-ITServices</Value>
-    </Setting>
-    <Setting Name="ActiveDirectoryDNSDomain" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">ad.syr.edu</Value>
-    </Setting>
-    <Setting Name="SmtpServer" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">smtp-host.syr.edu</Value>
-    </Setting>
-    <Setting Name="SmtpMessageFromAddress" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">remotelabadmin@syr.edu</Value>
-    </Setting>
-    <Setting Name="ActiveDirectoryDomain" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">AD</Value>
-    </Setting>
-    <Setting Name="LoginFormUsernameLabel" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">NetID</Value>
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Persist Security Info=True;Data Source=DKNRDLAB1;Initial Catalog=remotelabdb;User Id=remotelabuser;Password=53cur3LAB!&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Persist Security Info=True;Data Source=DKNRDLAB1;Initial Catalog=remotelabdb;User Id=remotelabuser;Password=53cur3LAB!</Value>
     </Setting>
     <Setting Name="LoginFormPasswordLabel" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Password</Value>
@@ -39,18 +24,48 @@
     <Setting Name="MacClientDownload" Type="System.String" Scope="Application">
       <Value Profile="(Default)">https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12</Value>
     </Setting>
+    <Setting Name="RemoteLabSettingsFileContent" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">
+          on error resume next
+          dim connstr, remotepowershelluser, poolName
+          connstr = "{0}"
+          remotepowershelluser = "{1}"
+          poolName = "{2}"
+        </Value>
+    </Setting>
+    <Setting Name="DashboardMaxEvents" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="AdministratorADGroup" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RemoteLab Admins</Value>
+    </Setting>
+    <Setting Name="ActiveDirectoryDNSDomain" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">fas.lcl</Value>
+    </Setting>
+    <Setting Name="SmtpServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">exmail.dickinson.edu</Value>
+    </Setting>
+    <Setting Name="SmtpMessageFromAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">remotelab@dickinson.edu</Value>
+    </Setting>
+    <Setting Name="ActiveDirectoryDomain" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">fas</Value>
+    </Setting>
+    <Setting Name="LoginFormUsernameLabel" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">User Name</Value>
+    </Setting>
     <Setting Name="EncryptionKeyForPasswords" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">240, 148, 233, 7, 112, 207, 116, 14, 177, 66, 198, 200, 41, 180, 156, 143, 151, 226, 75, 247, 115, 68, 85, 107, 143, 156, 5, 226, 191, 225, 247, 162</Value>
+      <Value Profile="(Default)">11, 81, 123, 99, 77, 112, 206, 101, 241, 209, 26, 218, 152, 28, 143, 229, 146, 26, 203, 217, 219, 168, 60, 240, 46, 21, 75, 242, 102, 61, 147, 193</Value>
     </Setting>
     <Setting Name="RdpFileSettings" Type="System.String" Scope="Application">
       <Value Profile="(Default)">
           screen mode id:i:2
-          desktopwidth:i: {0}
-          desktopheight:i: {1}
+          desktopwidth:i:{0}
+          desktopheight:i:{1}
           session bpp:i:32
           winposstr:s:0,1,614,156,1654,963
-          full address:s: {2}
-          username:s: {3}
+          full address:s:{2}
+          username:s:{3}
           compression:i:1
           keyboardhook:i:2
           audiomode:i:0
@@ -60,7 +75,7 @@
           redirectclipboard:i:1
           redirectposdevices:i:0
           redirectdrives:i:1
-          drivestoredirect: s()
+          drivestoredirect:s()
           displayconnectionbar:i:1
           pinconnectionbar:i:1
           autoreconnection enabled:i:1
@@ -78,10 +93,10 @@
           disable themes:i:0
           disable cursor setting:i:0
           bitmapcachepersistenable:i:1
-          gatewayhostname:s:
-          gatewayusagemethod:i:0
+          gatewayhostname:s:remote.dickinson.edu
+          gatewayusagemethod:i:2
           gatewaycredentialssource:i:4
-          gatewayprofileusagemethod:i:0
+          gatewayprofileusagemethod:i:1
           promptcredentialonce:i:1
           use multimon:i:0
           audiocapturemode:i:0
@@ -91,19 +106,8 @@
           use redirection server name:i:0
           devicestoredirect:s:*
           smart sizing:i:1
+
         </Value>
-    </Setting>
-    <Setting Name="RemoteLabSettingsFileContent" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">
-          on error resume next
-          dim connstr, remotepowershelluser, poolName
-          connstr = "{0}"
-          remotepowershelluser = "{1}"
-          poolName = "{2}"
-        </Value>
-    </Setting>
-    <Setting Name="DashboardMaxEvents" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">50</Value>
     </Setting>
   </Settings>
 </SettingsFile>

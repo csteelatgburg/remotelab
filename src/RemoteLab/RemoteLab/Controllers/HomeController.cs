@@ -197,7 +197,7 @@ namespace RemoteLab.Controllers
 
             //Clear Reservation, and reboot the computer
             await Svc.ClearReservationAsync(ComputerReservation);
-            bool RebootResult = await Svc.RebootComputerAsync(ComputerReservation, HttpContext.User.Identity.Name, PoolName,  System.DateTime.Now);
+            // bool RebootResult = await Svc.RebootComputerAsync(ComputerReservation, HttpContext.User.Identity.Name, PoolName,  System.DateTime.Now);
 
             // Set a session cookie to avoid someone over-clearing reservations
             HttpContext.Session[REZ_CLEARED_ONCE] = REZ_CLEARED_ONCE;

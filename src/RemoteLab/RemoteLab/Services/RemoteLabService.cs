@@ -86,7 +86,7 @@ namespace RemoteLab.Services
                 await this.LogEventAsync("REBOOT FAILED", CurrentUser, ComputerName, PoolName,Now);
                 var msg = String.Format(Properties.Resources.RebootFailedEmailMessage, ComputerName);
                 // TODO: IOC these arguments for testability.
-                await Smtp.SendMailAsync(Properties.Settings.Default.SmtpServer, Properties.Settings.Default.SmtpMessageFromAddress, pool.EmailNotifyList, msg, msg);
+                //await Smtp.SendMailAsync(Properties.Settings.Default.SmtpServer, Properties.Settings.Default.SmtpMessageFromAddress, pool.EmailNotifyList, msg, msg);
             }
             return RebootResult;
         }
