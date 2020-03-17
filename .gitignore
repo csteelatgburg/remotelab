@@ -158,3 +158,4 @@ $RECYCLE.BIN/
 *.lock
 
 src/RemoteLab/.vs/*
+src/RemoteLab/RemoteLab/Web.config
